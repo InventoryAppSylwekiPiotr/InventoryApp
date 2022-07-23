@@ -4,7 +4,7 @@ Inventory App Write down your items!
 
 ## Demo
 
-[DEMO](https://nventory-app-sda-102.herokuapp.com/)
+[DEMO](https://inventory-app-sda-102.herokuapp.com/)
 
 ## Tech stack
 
