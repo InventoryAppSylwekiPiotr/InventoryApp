@@ -20,9 +20,9 @@
         <td th:text="${inventory.item}"/>
         <td th:text="${inventory.owner}"/>
         <td th:text="${inventory.place}"/>
-        <td> <a th:href="@{/inventory/{invNumb}/(invNumb=${inventory.invNumb})}">Item Details</a></td>
-        <td> <a th:href="@{/inventory/edit/{invNumb}/(invNumb=${inventory.invNumb})}">Edit Item</a></td>
-        <td> <a th:href="@{/inventory/delete/{invNumb}/(invNumb=${inventory.invNumb})}">Delete Item</a></td>
+        <td> <a th:href="@{/inventory/{invNumb}/(invNumb=${inventory.invNumb})}">Details</a></td>
+        <td> <a th:href="@{/inventory/edit/{invNumb}/(invNumb=${inventory.invNumb})}">Edit</a></td>
+        <td> <a th:href="@{/inventory/delete/{invNumb}/(invNumb=${inventory.invNumb})}">Delete</a></td>
     </tr>
     </tbody>
 </table>
