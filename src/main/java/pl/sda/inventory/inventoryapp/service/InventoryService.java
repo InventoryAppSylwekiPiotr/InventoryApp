@@ -10,9 +10,11 @@ public interface InventoryService {
 
     List<Inventory> getAll();
 
-    void deleteById(Integer id);
+    void deleteByInvNumb(String invNumb);
 
     void update(Inventory inventory);
 
     Inventory getById(Integer id);
+
+    Inventory getByInvNumb(String invNumb);
 }

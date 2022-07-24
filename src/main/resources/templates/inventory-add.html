@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Item</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/inventory/save}" th:object="${emptyInventory}">
+
+    <label>
+        Item:
+        <input type="text" th:field="*{item}"/>
+        <td th:if="${#fields.hasErrors('item')}" th:errors="*{item}"/>
+    </label>
+
+    <label>
+        Owner:
+        <input type="text" th:field="*{owner}"/>
+        <td th:if="${#fields.hasErrors('owner')}" th:errors="*{owner}"/>
+    </label>
+    <label>
+        Place:
+        <input type="text" th:field="*{place}"/>
+        <td th:if="${#fields.hasErrors('place')}" th:errors="*{place}"/>
+    </label>
+
+    <label>
+        InvNumb:
+        <input type="text" th:field="*{invNumb}"/>
+        <td th:if="${#fields.hasErrors('invNumb')}" th:errors="*{invNumb}"/>
+    </label>
+
+    <label>
+        Description:
+        <input type="text" th:field="*{description}"/>
+    </label>
+
+
+    <label>
+        Add date:
+        <input type="text" th:field="*{addDate}"/>
+    </label>
+
+    <button type="submit">Add Item</button>
+
+</form>
+
+</body>
+</html>

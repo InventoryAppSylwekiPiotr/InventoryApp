@@ -2,6 +2,7 @@ package pl.sda.inventory.inventoryapp.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.persistence.*;
@@ -30,6 +31,7 @@ public class Inventory {
     @Column(length = 1000)
     private String description;
 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate addDate;
 
 }

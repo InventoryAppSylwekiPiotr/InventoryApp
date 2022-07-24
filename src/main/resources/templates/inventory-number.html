@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Number</title>
+</head>
+<body>
+
+<table class="table">
+    <thead>
+    <tr>
+    <tr>
+
+        <th scope="col">Item</th>
+        <th scope="col">Owner</th>
+        <th scope="col">Place</th>
+        <th scope="col">Item Number</th>
+        <th scope="col">Description</th>
+        <th scope="col">Add Date</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <td th:text="${inventory.item}"/>
+    <td th:text="${inventory.owner}"/>
+    <td th:text="${inventory.place}"/>
+    <td th:text="${inventory.invNumb}"/>
+    <td th:text="${inventory.description}"/>
+    <td th:text="${inventory.addDate}"/>
+    </tbody>
+</table>
+
+<a th:href="@{/inventory/list}">Return to inventory list</a>
+
+</body>
+</html>

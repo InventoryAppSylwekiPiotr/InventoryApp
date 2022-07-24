@@ -28,9 +28,9 @@ public class InventoryServiceImpl implements InventoryService {
         return inventoryRepository.findAll();
     }
 
-    @Override
-    public void deleteById(Integer id) {
-        inventoryRepository.deleteById(id);
+    public void deleteByInvNumb(String invNumb) {
+        Inventory inventory = getByInvNumb(invNumb);
+        inventoryRepository.deleteById(inventory.getId());
     }
 
     @Override
@@ -41,5 +41,10 @@ public class InventoryServiceImpl implements InventoryService {
     @Override
     public Inventory getById(Integer id) {
         return inventoryRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Inventory getByInvNumb(String invNumb) {
+        return inventoryRepository.findByInvNumb(invNumb);
     }
 }

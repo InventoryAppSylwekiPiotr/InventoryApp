@@ -7,4 +7,5 @@ public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
 
     Inventory findByInvNumb(String invNumb);
 
+    Inventory deleteByInvNumb(String invNumb);
 }
