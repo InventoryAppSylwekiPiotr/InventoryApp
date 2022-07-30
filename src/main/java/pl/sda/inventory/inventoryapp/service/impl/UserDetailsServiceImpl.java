@@ -1,5 +1,4 @@
 package pl.sda.inventory.inventoryapp.service.impl;
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -7,10 +6,9 @@ import org.springframework.stereotype.Service;
 import pl.sda.inventory.inventoryapp.model.User;
 import pl.sda.inventory.inventoryapp.repository.UserRepository;
 
-import java.util.stream.Collectors;
-
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+
 
     private final UserRepository userRepository;
 
@@ -21,10 +19,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User userFromDB = userRepository.findByUsername(username);
+        User userFromDB= userRepository.findByUsername(username);
 
-        if (userFromDB == null) {
-            throw new UsernameNotFoundException("Username " + username + " not found in database");
+        if(userFromDB==null){
+            throw new UsernameNotFoundException("Username" + username + " not found in database");
         }
 
         return org.springframework.security.core.userdetails.User.builder()
@@ -33,9 +31,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .roles(userFromDB.getRoles()
                         .stream()
                         .map(u -> u.getName())
-                        .collect(Collectors.joining())
+                        .toArray(String[]::new)
                 ).build();
-
 
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface InventoryService {
 
-    void save(Inventory inventory);
+    void save (Inventory inventory);
 
     List<Inventory> getAll();
 
@@ -17,4 +17,7 @@ public interface InventoryService {
     Inventory getById(Integer id);
 
     Inventory getByInvNumb(String invNumb);
+
+    List<Inventory> getAll(int pageNo, int pageSize, String sortBy);
+
 }

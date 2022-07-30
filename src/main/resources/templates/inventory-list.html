@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Inventory list</title>
 </head>
 <body>
-<td> <a th:href="@{/inventory/add}">Add new Item</a></td>
+
+Logged as <p th:text="${currentUser}"/>
+
+Logged as (fronted directly - thymeleaf) <p sec:authentication="name"/>
+
+<td> <a th:href="@{/logout}">Logout</a></td>
+
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+    <td> <a th:href="@{/admin/inventory/add}">Add new item</a></td>
+</div>
 
 <table>
     <thead>
@@ -21,8 +30,10 @@
         <td th:text="${inventory.owner}"/>
         <td th:text="${inventory.place}"/>
         <td> <a th:href="@{/inventory/{invNumb}/(invNumb=${inventory.invNumb})}">Details</a></td>
-        <td> <a th:href="@{/inventory/edit/{invNumb}/(invNumb=${inventory.invNumb})}">Edit</a></td>
-        <td> <a th:href="@{/inventory/delete/{invNumb}/(invNumb=${inventory.invNumb})}">Delete</a></td>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <td> <a th:href="@{/admin/inventory/edit/{invNumb}/(invNumb=${inventory.invNumb})}">Edit</a></td>
+            <td> <a th:href="@{/admin/inventory/delete/{invNumb}/(invNumb=${inventory.invNumb})}">Delete</a></td>
+        </div>
     </tr>
     </tbody>
 </table>

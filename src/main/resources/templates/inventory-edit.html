@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Item</title>
+    <title>Edit Item</title>
 </head>
 <body>
 
-<form method="post" th:action="@{/inventory/update}" th:object="${inventory}">
+<form method="post" th:action="@{/admin/inventory/update}" th:object="${inventory}">
 
     <input type="hidden" th:field="*{id}">
 
