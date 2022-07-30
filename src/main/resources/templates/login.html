@@ -21,11 +21,24 @@
 
 <form  method="post" th:action="@{/login}">
 
-    Login:
-    <input type="text" name="username">
+    <div class="row g-3 align-items-center">
 
-    Password:
-    <input type="password" name="password">
+        <div class="col-auto">
+            <input class="form-control" type="text" name="username">
+            <label class="label">Login</label>
+        </div>
+    </div>
+<!--    Login:-->
+<!--    <input type="text" name="username">-->
+    <div class="row g-3 align-items-center">
+
+        <div class="col-auto">
+            <input class="form-control" type="text" name="password">
+            <label class="label">Password</label>
+        </div>
+    </div>
+<!--    Password:-->
+<!--    <input type="password" name="password">-->
 
     <button type="submit" class="btn btn-primary" >Log in</button>
     <a class="btn btn-danger" th:href="@{/registration}" role="button">Registration</a>
