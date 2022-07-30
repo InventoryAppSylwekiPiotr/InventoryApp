@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <head>
     <meta charset="UTF-8">
     <title>Inventory list</title>
 </head>
+
 <body>
+<div class="p-3 mb-2 bg-success text-white">
+ Logged as:  <p th:text="${currentUser}"/>
 
-Logged as <p th:text="${currentUser}"/>
 
-Logged as (fronted directly - thymeleaf) <p sec:authentication="name"/>
 
-<td> <a th:href="@{/logout}">Logout</a></td>
 
 <div sec:authorize="hasRole('ROLE_ADMIN')">
-    <td> <a th:href="@{/admin/inventory/add}">Add new item</a></td>
+    <td> <a class="btn btn-primary" th:href="@{/admin/inventory/add}">Add new item</a></td>
+    <td> <a class="btn btn-danger" th:href="@{/logout}">Logout</a></td>
+    <td><a class="btn btn-warning" th:href="@{/admin/panel}">Return</a></td>
 </div>
-
-<table>
+    <div sec:authorize="hasRole('ROLE_USER')">
+        <td> <a class="btn btn-danger" th:href="@{/logout}">Logout</a></td>
+    </div>
+</div>
+<div class="p-3 mb-2 bg-light text-dark">
+<table class="table table-success table-striped" >
     <thead>
     <tr>
         <th>Item</th>
         <th>Owner</th>
         <th>Place</th>
+        <th>Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -29,14 +40,18 @@ Logged as (fronted directly - thymeleaf) <p sec:authentication="name"/>
         <td th:text="${inventory.item}"/>
         <td th:text="${inventory.owner}"/>
         <td th:text="${inventory.place}"/>
-        <td> <a th:href="@{/inventory/{invNumb}/(invNumb=${inventory.invNumb})}">Details</a></td>
+        <td> <a class="btn btn-secondary" th:href="@{/inventory/{invNumb}/(invNumb=${inventory.invNumb})}">Details</a></td>
         <div sec:authorize="hasRole('ROLE_ADMIN')">
-            <td> <a th:href="@{/admin/inventory/edit/{invNumb}/(invNumb=${inventory.invNumb})}">Edit</a></td>
-            <td> <a th:href="@{/admin/inventory/delete/{invNumb}/(invNumb=${inventory.invNumb})}">Delete</a></td>
+            <td> <a class="btn btn-warning" th:href="@{/admin/inventory/edit/{invNumb}/(invNumb=${inventory.invNumb})}">Edit</a></td>
+            <td> <a class="btn btn-danger" th:href="@{/admin/inventory/delete/{invNumb}/(invNumb=${inventory.invNumb})}">Delete</a></td>
         </div>
     </tr>
+
     </tbody>
+
 </table>
+</div>
 
 </body>
+
 </html>
