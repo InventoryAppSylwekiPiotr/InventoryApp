@@ -24,4 +24,6 @@ Inventory App Write down your items!
 - ☑️ Add Admin & User
 - ☑️ Add Security
 - ☑️ Present results
-
+- ☑️ login: admin, password: pass
+- ☑️ login: user, password: pass
+- ☑️ Present results
