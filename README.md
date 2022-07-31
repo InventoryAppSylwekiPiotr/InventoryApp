@@ -20,8 +20,8 @@ Inventory App Write down your items!
 
 - ☑️ Deployment to Heroku
 - ☑️ Simple README
-- ⬜ Present results
-- ⬜ Add new function
-- ⬜ Add Admin & User
-- ⬜ Add Security
+- ☑️ Add new function
+- ☑️ Add Admin & User
+- ☑️ Add Security
+- ☑️ Present results
 
